@@ -4,9 +4,10 @@ import './style/styles.css';
 import styled from 'styled-components'
 import r8 from './r8.jpg'
 import cent from './cent.svg'
+import Calculator from './Calculator'
 function App() {
   return (
-    <div className="App">
+    <div className="App mb-24">
       <Header className="App-header w-full text-white">
         <Overlay></Overlay>
         <div className="navbar p-4 text-white w-full relative mx-auto container justify-start flex flex-row items-center" style={{zIndex:18}}>
@@ -28,6 +29,7 @@ function App() {
           </button>
         </div>
       </Header>
+      <Calculator></Calculator>
     </div>
   );
 }
