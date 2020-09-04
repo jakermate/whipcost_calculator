@@ -5,13 +5,15 @@ const server = express()
 const path = require('path')
 const cors = require('cors')
 
+server.listen(()=>{
+    console.log('Whipcost running on internal port ' + PORT)
+})
+
 server.use(morgan('common'))
 server.use(cors())
 server.use('/', express.static(path.join(__dirname, "build")))
 
-server.listen(()=>{
-    console.log('Whipcost running on internal port ' + PORT)
-})
+
 
 server.get('/',(req,res)=>{
     res.sendFile(path.join(__dirname,'build', 'index.html'))
