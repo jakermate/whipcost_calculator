@@ -7,7 +7,7 @@ const cors = require('cors')
 
 server.use(morgan('common'))
 server.use(cors())
-server.use(express.static(path.join(__dirname, "build")))
+server.use('/', express.static(path.join(__dirname, "build")))
 
 server.listen(()=>{
     console.log('Whipcost running on internal port ' + PORT)
