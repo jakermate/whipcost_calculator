@@ -10,6 +10,7 @@ export default function MonthlyCalculator() {
   const [borrowed, setBorrowed] = useState(0)
   const [totalCost, setTotalCost] = useState(0)
 
+  const nationalAverage = 36718
   // callback
   useEffect(() => {
     getTotals()
@@ -29,6 +30,13 @@ export default function MonthlyCalculator() {
       e.target.value = 0
     }
   }
+  // get vs national average
+  function getVersusAverage(){
+    if(totalCost < nationalAverage){
+        return Math.abs((nationalAverage / totalCost) * 100) -100
+    }
+    return Math.abs((totalCost / nationalAverage) * 100) -100
+}
   return (
     <div id="monthly-price-calc " className="py-3 px-4">
       <div className="flex flex-row flex-wrap p-3 box-border">

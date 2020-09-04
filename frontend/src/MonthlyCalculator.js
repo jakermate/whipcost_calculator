@@ -1,47 +1,57 @@
 import React, { useState, useEffect } from "react"
-import styled from 'styled-components'
+import styled from "styled-components"
 export default function MonthlyCalculator() {
-// inputs
-const [price, setPrice] = useState(25000)
-const [taxRate, setTaxRate] = useState(1)
-const [duration, setDuration] = useState(12)
+  // inputs
+  const [price, setPrice] = useState(25000)
+  const [taxRate, setTaxRate] = useState(1)
+  const [duration, setDuration] = useState(12)
 
-// totals
+  // totals
   const [totalCost, setTotalCost] = useState(0)
   const [monthly, setMonthly] = useState(0)
 
-// callback
-useEffect(()=>{
+  const nationalAverage = 554
+  // callback
+  useEffect(() => {
     getMonthly()
-}, [price, taxRate, duration])
+  }, [price, taxRate, duration])
 
-  function getMonthly(e){
-    console.log('update')
-    if(price < .01){
-        setMonthly(0)
-        setTotalCost(price.toFixed(2))
-        return
+  function getMonthly(e) {
+    console.log("update")
+    if (price < 0.01) {
+      setMonthly(0)
+      setTotalCost(price.toFixed(2))
+      return
     }
-    if(taxRate < .01){
-        setMonthly((price / duration).toFixed(2))
-        setTotalCost(price)
-        return
+    if (taxRate < 0.01) {
+      setMonthly((price / duration).toFixed(2))
+      setTotalCost(price)
+      return
     }
-    if(duration < 1){
-        setMonthly(0)
-        setTotalCost(price)
-        return
+    if (duration < 1) {
+      setMonthly(0)
+      setTotalCost(price)
+      return
     }
 
-    let monthly = (price * (taxRate / 100) / 12) / (1 - Math.pow((1 + (taxRate/100) / 12), - duration))
+    let monthly =
+      (price * (taxRate / 100)) /
+      12 /
+      (1 - Math.pow(1 + taxRate / 100 / 12, -duration))
     setTotalCost((duration * monthly).toFixed(2))
     setMonthly(monthly.toFixed(2))
   }
-  function unfocus(e){
-      console.log('unfocused')
-    if(e.target.value === ''){
-        e.target.value = 0
+  function unfocus(e) {
+    console.log("unfocused")
+    if (e.target.value === "") {
+      e.target.value = 0
     }
+  }
+  function getVersusAverage(){
+      if(monthly < nationalAverage){
+          return Math.abs((nationalAverage / monthly) * 100) -100
+      }
+      return Math.abs((monthly / nationalAverage) * 100) -100
   }
   return (
     <div id="monthly-price-calc " className="py-3 px-4">
@@ -51,15 +61,17 @@ useEffect(()=>{
             Loan Amount
           </label>
           <Input
-            onChange={e=> setPrice(e.target.value)}
+            onChange={(e) => setPrice(e.target.value)}
             type="text"
             name="loan"
-            style={{paddingLeft:'16px'}}
+            style={{ paddingLeft: "16px" }}
             value={price}
-            onBlur={e=> unfocus(e)}
+            onBlur={(e) => unfocus(e)}
             className="border-b-2 w-full bg-transparent outline-none border-gray-400"
           />
-          <div className="absolute text-lg font-bold" style={{top:'27px'}}>$</div>
+          <div className="absolute text-lg font-bold" style={{ top: "27px" }}>
+            $
+          </div>
         </div>
         <div className="box-border pr-4 w-6/12 sm:w-1/3 relative">
           <label
@@ -70,8 +82,8 @@ useEffect(()=>{
           </label>
           <Input
             value={taxRate}
-            onBlur={e=> unfocus(e)}
-            onChange={e=> setTaxRate(e.target.value)}
+            onBlur={(e) => unfocus(e)}
+            onChange={(e) => setTaxRate(e.target.value)}
             type="text"
             name="interest"
             className="border-b-2 bg-transparent w-full outline-none border-gray-400"
@@ -86,8 +98,8 @@ useEffect(()=>{
           </label>
           <Input
             value={duration}
-            onBlur={e=> unfocus(e)}
-            onChange={e=> setDuration(e.target.value)}
+            onBlur={(e) => unfocus(e)}
+            onChange={(e) => setDuration(e.target.value)}
             type="text"
             name="duration"
             className="border-b-2 bg-transparent w-full outline-none border-gray-400"
@@ -97,28 +109,31 @@ useEffect(()=>{
       </div>
       <div className="flex flex-row p-3 results-container">
         <div className="w-1/2">
-          <label htmlFor="" className="text-gray-700">Total Cost</label>
+          <label htmlFor="" className="text-gray-700">
+            Total Cost
+          </label>
           <div className="flex flex-row justify-start text-xl font-bold w-full text-right">
             <div>$</div>
             <div>{totalCost}</div>
           </div>
         </div>
         <div className="w-1/2">
-          <label htmlFor="" className="text-gray-700">Monthly Payment</label>
+          <label htmlFor="" className="text-gray-700">
+            Monthly Payment
+          </label>
           <div className="flex flex-row justify-start text-xl font-bold w-full text-right">
             <div>$</div>
-            <div>
-                
-                {
-                    monthly
-                }
-            </div>
+            <div>{monthly}</div>
           </div>
         </div>
+        
       </div>
+      <div className="ml-3 mb-2">
+          This is <span className="font-bold">{(getVersusAverage().toFixed(0))}%</span> {monthly > nationalAverage ? <span className="font-bold text-red-400">higher</span> : <span className="font-bold text-green-400">lower</span>} than the national avarage car payment.
+        </div>
     </div>
   )
 }
 const Input = styled.input`
-    padding-bottom: 6px;
+  padding-bottom: 6px;
 `
