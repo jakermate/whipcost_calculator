@@ -12,3 +12,7 @@ server.use('/', express.static(path.join(__dirname, "build")))
 server.listen(()=>{
     console.log('Whipcost running on internal port ' + PORT)
 })
+
+server.get('/',(req,res)=>{
+    res.sendFile(path.join(__dirname,'build', 'index.html'))
+})
