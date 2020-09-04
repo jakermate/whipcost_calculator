@@ -1,11 +1,11 @@
 const express = require('express')
 const morgan = require('morgan')
-const PORT = 8088
-const server = express()
+const PORT = process.env.PORT || 8088
 const path = require('path')
 const cors = require('cors')
 
-server.listen(()=>{
+const server = express()
+server.listen(PORT, ()=>{
     console.log('Whipcost running on internal port ' + PORT)
 })
 
