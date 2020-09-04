@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-
+import styled from 'styled-components'
 export default function MonthlyCalculator() {
 // inputs
 const [price, setPrice] = useState(25000)
@@ -19,18 +19,22 @@ useEffect(()=>{
     console.log('update')
     if(price < .01){
         setMonthly(0)
+        setTotalCost(price.toFixed(2))
         return
     }
     if(taxRate < .01){
         setMonthly((price / duration).toFixed(2))
+        setTotalCost(price)
         return
     }
     if(duration < 1){
         setMonthly(0)
+        setTotalCost(price)
         return
     }
 
     let monthly = (price * (taxRate / 100) / 12) / (1 - Math.pow((1 + (taxRate/100) / 12), - duration))
+    setTotalCost((duration * monthly).toFixed(2))
     setMonthly(monthly.toFixed(2))
   }
   function unfocus(e){
@@ -42,49 +46,51 @@ useEffect(()=>{
   return (
     <div id="monthly-price-calc " className="py-3 px-4">
       <div className="flex flex-row flex-wrap p-3 box-border">
-        <div className="pr-4 mb-4 w-full sm:w-1/3">
+        <div className="pr-4 mb-4 sm:mb-0 w-full sm:w-1/3 relative">
           <label className="mb-2 block text-gray-700 text-sm" htmlFor="loan">
             Loan Amount
           </label>
-          <input
+          <Input
             onChange={e=> setPrice(e.target.value)}
             type="text"
             name="loan"
+            style={{paddingLeft:'16px'}}
             value={price}
             onBlur={e=> unfocus(e)}
-            className="border-b-2 w-full bg-transparent outline-none border-gray-600"
+            className="border-b-2 w-full bg-transparent outline-none border-gray-400"
           />
+          <div className="absolute text-lg font-bold" style={{top:'27px'}}>$</div>
         </div>
-        <div className="box-border pr-4 w-6/12 sm:w-1/3">
+        <div className="box-border pr-4 w-6/12 sm:w-1/3 relative">
           <label
             className="mb-2 block text-gray-700 text-sm"
             htmlFor="interest"
           >
             Interest %
           </label>
-          <input
+          <Input
             value={taxRate}
             onBlur={e=> unfocus(e)}
             onChange={e=> setTaxRate(e.target.value)}
             type="text"
             name="interest"
-            className="border-b-2 bg-transparent w-full outline-none border-gray-600"
+            className="border-b-2 bg-transparent w-full outline-none border-gray-400"
           />
         </div>
-        <div className="box-border pr-4 w-6/12 sm:w-1/3">
+        <div className="box-border pr-4 w-6/12 sm:w-1/3 relative">
           <label
             className="mb-2 block text-gray-700 text-sm"
             htmlFor="duration"
           >
             Loan Duration
           </label>
-          <input
+          <Input
             value={duration}
             onBlur={e=> unfocus(e)}
             onChange={e=> setDuration(e.target.value)}
             type="text"
             name="duration"
-            className="border-b-2 bg-transparent w-full outline-none border-gray-600"
+            className="border-b-2 bg-transparent w-full outline-none border-gray-400"
           />
           <p className="text-gray-500 text-sm">months</p>
         </div>
@@ -113,3 +119,6 @@ useEffect(()=>{
     </div>
   )
 }
+const Input = styled.input`
+    padding-bottom: 6px;
+`

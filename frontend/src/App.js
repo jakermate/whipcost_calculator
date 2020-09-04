@@ -7,8 +7,8 @@ import cent from './cent.svg'
 import Calculator from './Calculator'
 function App() {
   return (
-    <div className="App mb-24">
-      <Header className="App-header w-full text-white">
+    <div className="App relative mb-24">
+      <Header className="App-header relative w-full text-white">
         <Overlay></Overlay>
         <div className="navbar p-4 text-white w-full relative mx-auto container justify-start flex flex-row items-center" style={{zIndex:18}}>
           <div className="logo-container tracking-widest text-teal-100">
@@ -49,5 +49,5 @@ const Overlay = styled.div`
   left:0;
   right:0;
   z-index: 1;
-  background: rgba(70,70,70,.5);
+  background: rgba(100,100,100,.6);
 `
