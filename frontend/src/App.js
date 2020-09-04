@@ -24,9 +24,9 @@ function App() {
           <h4 className="text-white text-2xl font-thin">
             Car Loan Calculator
           </h4>
-          <button className="mt-4 bg-gray-300 text-black py-3 px-6 w-48 hover:bg-gray-600 rounded-md ">
+          {/* <button className="mt-4 bg-gray-300 text-black py-3 px-6 w-48 hover:bg-gray-600 rounded-md ">
             PRICE
-          </button>
+          </button> */}
         </div>
       </Header>
       <Calculator></Calculator>

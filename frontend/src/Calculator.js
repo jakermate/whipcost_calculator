@@ -5,10 +5,10 @@ import styled from 'styled-components'
 export default function Calculator() {
     const [mode, setMode] = useState(0)
     return (
-        <div className="container mx-auto max-w-2xl flex flex-col shadow-xl rounded-md relative bg-white border-gray-100 border-2 my-4 pt-4" style={{minHeight:'300px', top:'-100px', zIndex:200}}>
-            <div className="title-container text-lg font-bold ml-3">
+        <div className="container mx-auto max-w-2xl flex flex-col shadow-2xl rounded-md relative bg-white border-gray-100 border-2 my-4 " style={{minHeight:'300px', top:'-140px', zIndex:200}}>
+            {/* <div className="title-container text-lg font-bold ml-3">
                 Loan Calculator
-            </div>
+            </div> */}
             <div className="input-container h-full flex-grow flex flex-col">
                 <div className="mode-switcher-container text-center flex flex-row w-full">
                     <ModeSelect active={mode === 0} className="monthly-mode-container text-gray-500 flex-grow py-3" onClick={e=>setMode(0)}>
