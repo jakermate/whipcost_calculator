@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import styled from "styled-components"
+import comma from 'comma-number'
 export default function MonthlyCalculator() {
   // inputs
   const [price, setPrice] = useState(25000)
@@ -114,7 +115,7 @@ export default function MonthlyCalculator() {
           </label>
           <div className="flex flex-row justify-start text-xl font-bold w-full text-right">
             <div>$</div>
-            <div>{totalCost}</div>
+            <div>{comma(totalCost)}</div>
           </div>
         </div>
         <div className="w-1/2">
@@ -123,7 +124,7 @@ export default function MonthlyCalculator() {
           </label>
           <div className="flex flex-row justify-start text-xl font-bold w-full text-right">
             <div>$</div>
-            <div>{monthly}</div>
+            <div>{comma(monthly)}</div>
           </div>
         </div>
         

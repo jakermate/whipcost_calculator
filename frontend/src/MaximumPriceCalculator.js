@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import styled from "styled-components"
+const comma = require('comma-number')
 export default function MonthlyCalculator() {
   // inputs
   const [monthlyBudget, setMonthlyBudget] = useState(360)
@@ -98,7 +99,7 @@ export default function MonthlyCalculator() {
           </label>
           <div className="flex flex-row justify-start text-xl font-bold w-full text-right">
             <div>$</div>
-            <div>{borrowed}</div>
+            <div>{comma(borrowed)}</div>
           </div>
         </div>
         <div className="w-1/2">
@@ -107,10 +108,13 @@ export default function MonthlyCalculator() {
           </label>
           <div className="flex flex-row justify-start text-xl font-bold w-full text-right">
             <div>$</div>
-            <div>{totalCost}</div>
+            <div>{comma(totalCost)}</div>
           </div>
         </div>
       </div>
+      <div className="ml-3 mb-2">
+          This is <span className="font-bold">{(getVersusAverage().toFixed(0))}%</span> {totalCost > nationalAverage ? <span className="font-bold text-red-400">higher</span> : <span className="font-bold text-green-400">lower</span>} than the national avarage car purchase.
+        </div>
     </div>
   )
 }
