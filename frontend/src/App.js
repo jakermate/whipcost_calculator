@@ -30,7 +30,15 @@ function App() {
         </div>
       </Header>
       <Calculator></Calculator>
-      <footer className="flex flex-col justify-center items-center bg-gray-800 pt-16 pb-16 text-white">
+      <section id="about">
+        <div id="about-content" className="mt-16 container mx-auto text-center text-white max-w-2xl px-6">
+          <h1 className="text-3xl font-bold text-white">Buying a car is stressful.</h1>
+          <p className="mt-4 text-lg">
+            Most people dread the idea of visiting a dealership.  Dealerships use predatory tactics in order to maximize their profit, and minimize your savings.  A salesman can either use your monthly budget to increase their margins by padding out your loan duration.  Knowing your total expected costs in addition to your monthly payment (with taxes included) before walking into the dealerships gives you a fighting chance.
+          </p>
+        </div>
+      </section>
+      <footer className="flex flex-col justify-center items-center bg-gray-800 pt-16 pb-16 mt-16 text-white">
           <img src={cent} style={{
             width: '70px',
 
