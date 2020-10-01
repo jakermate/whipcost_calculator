@@ -17,7 +17,7 @@ function App() {
           
         </div>
         <div className="container mt-12 align-center mx-auto relative header-content py-6 px-3 text-center" style={{zIndex:20,}}>
-          <img src={cent} alt="" className="inline-block w-32" />
+          <img src={cent} alt="" className="inline-block w-32" alt="Whipcost Car Loan Calculator" />
           <h1 className="md:text-5xl mt-8 text-4xl font-bold text-white">
             WHIPCOST
           </h1>
