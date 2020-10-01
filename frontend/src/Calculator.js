@@ -5,7 +5,7 @@ import styled from 'styled-components'
 export default function Calculator() {
     const [mode, setMode] = useState(0)
     return (
-        <div className="container mx-auto max-w-2xl flex flex-col shadow-2xl rounded-md relative bg-white border-gray-100 border-2 my-4 " style={{minHeight:'300px', top:'-140px', zIndex:200}}>
+        <div className="container mx-auto max-w-2xl flex flex-col shadow-2xl rounded-md relative bg-white border-gray-100 border-2 my-4 " style={{minHeight:'300px', marginTop:'-60px', zIndex:200, position: 'relative'}}>
             {/* <div className="title-container text-lg font-bold ml-3">
                 Loan Calculator
             </div> */}
