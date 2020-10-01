@@ -112,7 +112,7 @@ export default function MonthlyCalculator() {
           </div>
         </div>
       </div>
-      <div className="ml-3 mb-2">
+      <div className="ml-3 mb-2 mt-4 text-xl">
           This is <span className="font-bold">{(getVersusAverage().toFixed(0))}%</span> {totalCost > nationalAverage ? <span className="font-bold text-red-400">higher</span> : <span className="font-bold text-green-400">lower</span>} than the national avarage car purchase.
         </div>
     </div>

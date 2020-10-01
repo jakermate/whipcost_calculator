@@ -5,7 +5,7 @@ import styled from 'styled-components'
 export default function Calculator() {
     const [mode, setMode] = useState(0)
     return (
-        <div className="container mx-auto max-w-2xl flex flex-col shadow-2xl rounded-md relative bg-white border-gray-100 border-2 my-4 " style={{minHeight:'300px', marginTop:'-60px', zIndex:200, position: 'relative'}}>
+        <div className="container mx-auto max-w-2xl flex flex-col shadow-2xl sm:rounded-md relative bg-white border-gray-100 border-2 my-4 " style={{minHeight:'300px', marginTop:'-60px', zIndex:200, position: 'relative'}}>
             {/* <div className="title-container text-lg font-bold ml-3">
                 Loan Calculator
             </div> */}
@@ -25,6 +25,14 @@ export default function Calculator() {
                         <MaximumPriceCalculator></MaximumPriceCalculator>
 
                     }
+                </div>
+                <div className="px-8">
+                <hr/>
+
+                </div>
+                <div id="warning" className="text-center mt-4 text-xs px-6 pb-8 opacity-50">
+                    <h6>All prices and loan amounts are estimates, and may not reflect actual final pricing of your purchase.  Use this calculator as but one of many tools in helping you save money.</h6>
+                    <h6>WhipCost accepts no liability.</h6>
                 </div>
                 
             </div>

@@ -12,11 +12,11 @@ function App() {
         <Overlay></Overlay>
         <div className="navbar p-4 text-white w-full relative mx-auto container justify-start flex flex-row items-center" style={{zIndex:18}}>
           <div className="logo-container tracking-widest  text-teal-100">
-            WHIPCOST
+             <a href="/">WHIPCOST</a>
           </div>
           
         </div>
-        <div className="container mt-24 align-center mx-auto relative header-content py-6 px-3 text-center" style={{zIndex:20,}}>
+        <div className="container mt-12 align-center mx-auto relative header-content py-6 px-3 text-center" style={{zIndex:20,}}>
           <img src={cent} alt="" className="inline-block w-32" />
           <h1 className="md:text-5xl mt-8 text-4xl font-bold text-white">
             WHIPCOST
@@ -35,6 +35,11 @@ function App() {
             width: '70px',
 
             }} alt=""/>
+            <div className="mt-6 text-center">
+              Helping you budget your next car purchase.
+              <br/>
+              <em className="mt-2 font-bold">Don't get surprised at the dealership.</em>
+            </div>
             <div id="copyright" className="text-lg mt-6">
               &copy; Whipcost, 2020
             </div>
