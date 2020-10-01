@@ -11,10 +11,10 @@ export default function Calculator() {
             </div> */}
             <div className="input-container h-full flex-grow flex flex-col">
                 <div className="mode-switcher-container text-center flex flex-row w-full">
-                    <ModeSelect active={mode === 0} className="monthly-mode-container text-gray-500 flex-grow py-3" onClick={e=>setMode(0)}>
+                    <ModeSelect active={mode === 0} className="monthly-mode-container font-bold text-gray-500 flex-grow py-3" onClick={e=>setMode(0)}>
                         Monthly Payment
                     </ModeSelect>
-                    <ModeSelect active={mode === 1} className="max-cost-mode-container text-gray-500 flex-grow py-3" onClick={e=>setMode(1)}>
+                    <ModeSelect active={mode === 1} className="max-cost-mode-container font-bold text-gray-500 flex-grow py-3" onClick={e=>setMode(1)}>
                         Maximum Price
                     </ModeSelect>
                 </div>
@@ -33,10 +33,10 @@ export default function Calculator() {
 }
 const ModeSelect = styled.div`
     cursor: pointer;
-    color: ${props => props.active === true && 'purple'};
+    color: ${props => props.active === true && 'blue'};
     background: ${props => props.active === false && 'rgba(200,200,200,.2)'};
 
-    border-color: ${props => props.active === true && 'purple'};
+    border-color: ${props => props.active === true && 'blue'};
     border-bottom-width: 1px;
 
 `
