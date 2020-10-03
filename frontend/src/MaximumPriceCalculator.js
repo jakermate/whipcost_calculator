@@ -18,10 +18,13 @@ export default function MonthlyCalculator() {
   }, [monthlyBudget, taxRate, duration])
 
   function getTotals() {
-
+    let parsedTaxRate = taxRate
+    if(isNaN(parsedTaxRate)){
+      parsedTaxRate = .01
+    }
     let totalCost = monthlyBudget * duration
     setTotalCost(totalCost)
-    let borrowedAmount = ((1- Math.pow((1+((taxRate/100)/12)), - duration)  ) * monthlyBudget) / ((taxRate/100)/12)
+    let borrowedAmount = ((1- Math.pow((1+((parsedTaxRate/100)/12)), - duration)  ) * monthlyBudget) / ((parsedTaxRate/100)/12)
     setBorrowed(borrowedAmount.toFixed(2))
   }
 

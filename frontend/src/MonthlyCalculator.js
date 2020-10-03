@@ -21,7 +21,7 @@ export default function MonthlyCalculator() {
     console.log("update")
     if (price < 0.01) {
       setMonthly(0)
-      setTotalCost(price.toFixed(2))
+      setTotalCost(0)
       return
     }
     if (taxRate < 0.01) {
@@ -48,6 +48,13 @@ export default function MonthlyCalculator() {
       e.target.value = 0
     }
   }
+  function handlePriceChange(value){
+    if(value){
+      setPrice(value)
+      return
+    }
+    setPrice()
+  }
   function getVersusAverage(){
       if(monthly < nationalAverage){
           return Math.abs((nationalAverage / monthly) * 100) -100
@@ -62,7 +69,7 @@ export default function MonthlyCalculator() {
             Loan Amount
           </label>
           <Input
-            onChange={(e) => setPrice(e.target.value)}
+            onChange={(e) => handlePriceChange(e.target.value)}
             type="text"
             name="loan"
             style={{ paddingLeft: "16px" }}
