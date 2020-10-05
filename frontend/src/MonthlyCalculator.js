@@ -117,21 +117,21 @@ export default function MonthlyCalculator() {
       </div>
       <div className="flex flex-row p-3 results-container">
         <div className="w-1/2">
-          <label htmlFor="" className="text-gray-700">
+          <label htmlFor="" className="text-gray-700 opacity-75 font-bold text-sm">
             Total Cost
           </label>
           <div className="flex flex-row justify-start text-xl font-bold w-full text-right">
             <div>$</div>
-            <div>{comma(totalCost)}</div>
+            <div className="font-boldest">{comma(totalCost)}</div>
           </div>
         </div>
         <div className="w-1/2">
-          <label htmlFor="" className="text-gray-700">
+          <label htmlFor="" className="text-gray-700 opacity-75 font-bold text-sm">
             Monthly Payment
           </label>
           <div className="flex flex-row justify-start text-xl font-bold w-full text-right">
             <div>$</div>
-            <div>{comma(monthly)}</div>
+            <div className="font-boldest">{comma(monthly)}</div>
           </div>
         </div>
         

@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './style/styles.css';
 import styled from 'styled-components'
-import r8 from './r8.jpg'
+import bg from './bg2.jpg'
 import cent from './cent.svg'
 import Calculator from './Calculator'
 function App() {
@@ -12,21 +12,19 @@ function App() {
         <Overlay></Overlay>
         <div className="navbar p-4 text-white w-full relative mx-auto container justify-start flex flex-row items-center" style={{zIndex:18}}>
           <div className="logo-container tracking-widest  text-teal-100">
-             <a href="/">WHIPCOST</a>
+             <a href="/">whipcost</a>
           </div>
           
         </div>
         <div className="container mt-12 align-center mx-auto relative header-content py-6 px-3 text-center" style={{zIndex:20,}}>
           <img src={cent} alt="" className="inline-block w-32" alt="Whipcost Car Loan Calculator" />
-          <h1 className="md:text-5xl mt-8 text-4xl font-bold text-white">
-            WHIPCOST
+          <h1 className="md:text-6xl mt-8 text-purple-100  text-4xl font-bold ">
+            whipcost
           </h1>
-          <h4 className="text-white text-2xl font-bold">
+          <h4 className="text-white text-2xl ">
             Car Loan Calculator
           </h4>
-          {/* <button className="mt-4 bg-gray-300 text-black py-3 px-6 w-48 hover:bg-gray-600 rounded-md ">
-            PRICE
-          </button> */}
+         
         </div>
       </Header>
       <Calculator></Calculator>
@@ -60,8 +58,10 @@ export default App;
 
 const Header = styled.header`
   min-height: 70vh;
-  background: url(${r8});
+  background: url(${bg});
   background-size: cover;
+  padding-bottom: 180px;
+  background-position: center;
   position: relative;
 `
 const Overlay = styled.div`
@@ -71,5 +71,4 @@ const Overlay = styled.div`
   left:0;
   right:0;
   z-index: 1;
-  background: rgba(60,60,60,.8);
 `
