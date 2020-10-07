@@ -45,7 +45,7 @@ const ModeSelect = styled.div`
     background: ${props => props.active === false && 'transparent'};
     border-top-left-radius: ${props => props.active ? '8px' : '0px'};
     border-top-right-radius: ${props => props.active ? '8px' : '0px'};
-
+    box-shadow:${props => props.active ? '0px 0px 8px rgba(0,0,0,.3)' : 'none'};
     border-color: ${props => props.active === true && 'blue'};
     /* border-bottom-width: 1px; */
 
